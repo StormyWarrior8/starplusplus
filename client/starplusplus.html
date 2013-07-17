@@ -1,13 +1,28 @@
 <head>
-  <title>Star++</title>
+    <title>Star++</title>
 </head>
 
 <body>
-  {{> hello}}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Star++</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hero-unit">
+            {{> main}}
+        </div>
+    </div>
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="main">
+    {{#unless currentUser}}
+        <div style="text-align: center;">
+            <h1>Star++</h1>
+            <p>A better way to view and organize your github stars.</p>
+            <p>To get started, sign in with your github.</p>
+        </div>
+    {{/unless}}
 </template>
