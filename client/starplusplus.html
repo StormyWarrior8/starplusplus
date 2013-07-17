@@ -7,6 +7,9 @@
         <div class="navbar-inner">
             <div class="container">
                 <a class="brand" href="#">Star++</a>
+                <div class="pull-right login-buttons">
+                    {{loginButtons align="right"}}
+                </div>
             </div>
         </div>
     </div>
@@ -25,4 +28,12 @@
             <p>To get started, sign in with your github.</p>
         </div>
     {{/unless}}
+    {{#if currentUser}}
+        {{user}}
+        <ul>
+            {{#each stars}}
+                <li>{{name}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
 </template>

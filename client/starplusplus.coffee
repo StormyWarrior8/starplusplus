@@ -1,7 +1,14 @@
-Template.hello.greeting = ->
-    return "Welcome to starplusplus.";
+Template.main.helpers
+    user: ->
+        return Meteor.user().services.github.username
+    stars: ->
+        Meteor.http.get "https://api.github.com/user/starred", 
+            { headers: { "Authorization": "token " + Meteor.user().services.github.accessToken }},
+            (err, result) ->
+                Session.set "stars", result.data
+        return Session.get "stars"
 
-Template.hello.events
-    "click input": ->
-        # template data, if any, is available in "this"
-        console.log("You pressed the button");
+Meteor.startup ->
+    Accounts.ui.config 
+        requestPermissions:
+            github: ["user"]
