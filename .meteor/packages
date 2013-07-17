@@ -9,3 +9,5 @@ preserve-inputs
 coffeescript
 bootstrap
 jquery
+accounts-github
+accounts-ui
