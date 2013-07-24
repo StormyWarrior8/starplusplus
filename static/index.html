@@ -1,18 +1,43 @@
 <html>
     <head>
         <title>Star++</title>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/main.css">
+
+        <!-- JS -->
         <script src="/vendor/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/vendor/knockout/knockout-2.3.0.js" type="text/javascript"></script>
         <script src="/main.js" type="text/javascript"></script>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <p>First name: <strong data-bind="text: firstName"></strong></p>
-        <p>Last name: <strong data-bind="text: lastName"></strong></p>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="#">Star++</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <h1>Hello World!</h1>
+                <p>First name: <strong data-bind="text: firstName"></strong></p>
+                <p>Last name: <strong data-bind="text: lastName"></strong></p>
 
-        <p>First name: <input data-bind="value: firstName, valueUpdate: 'afterkeydown'" /></p>
-        <p>Last name: <input data-bind="value: lastName, valueUpdate: 'afterkeydown'" /></p>
+                <p>First name: <input data-bind="value: firstName, valueUpdate: 'afterkeydown'" /></p>
+                <p>Last name: <input data-bind="value: lastName, valueUpdate: 'afterkeydown'" /></p>
 
-        <p>Full name: <strong data-bind="text: fullName"></strong></p>
+                <p>Full name: <strong data-bind="text: fullName"></strong></p>
+            </div>
+        </div>
     </body>
 </html>
