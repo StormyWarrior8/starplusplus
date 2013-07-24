@@ -17,15 +17,26 @@
             <div class="navbar-inner">
                 <div class="container">
                     <a class="brand" href="#">Star++</a>
-                    <button class="btn btn-success pull-right">Login &raquo;</button>
+                    <a class="btn btn-success pull-right" 
+                        data-bind="
+                            text: loggedIn() ? 'Logout &raquo;' : 'Login &raquo;',
+                            attr: { href: loggedIn() ? '/logout' : '/auth/github' }
+                        ">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="hero-unit">
+            <div class="hero-unit" data-bind="visible: !loggedIn()">
                 <h1>Star++</h1>
-                <p>A better way to view and organize your github stars. To get started login. <a href="#" class="btn btn-success">Login &raquo;</a></p>
+                <p>A better way to view and organize your github stars. To get started, just login with our github account.</p>
+            </div>
+            <div class="container" data-bind="visible: loggedIn()">
+                <div class="row">
+                    <p>You are logged in!!!</p>
+                </div>
             </div>
         </div>
+
     </body>
 </html>
