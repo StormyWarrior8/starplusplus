@@ -1,0 +1,10 @@
+{
+  "name": "starplusplus",
+  "version": "0.0.0",
+  "description": "A better way to view and organize your github stars",
+  "author": "Gio d'Amelio",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/giodamelio/starplusplus.git"
+  }
+}
