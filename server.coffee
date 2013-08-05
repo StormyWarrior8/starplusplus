@@ -15,7 +15,6 @@ app.configure ->
     app.engine "handlebars", exphbs({defaultLayout: "main"})
     app.set "view engine", "handlebars"
 
-
 # Setup regular paths
 app.get "/", (req, res) ->
     res.render "home"
