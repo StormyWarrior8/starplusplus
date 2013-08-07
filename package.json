@@ -1,0 +1,18 @@
+{
+  "name": "starplusplus",
+  "version": "0.0.0",
+  "description": "A better way to organize your github stars",
+  "author": "Gio d'Amelio",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/giodamelio/starplusplus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/giodamelio/starplusplus/issues"
+  },
+  "license": "BSD",
+  "devDependencies": {
+    "coffee-script": "~1.6.3",
+    "express": "~3.3.4"
+  }
+}
