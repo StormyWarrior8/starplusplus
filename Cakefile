@@ -1,3 +1,5 @@
+child_process = require "child_process"
+
 takeapeek = require "takeapeek"
 
 path = 
@@ -9,6 +11,10 @@ spawn = (cmd, options, callback) ->
         process.stdout.write data.toString()
     p.on "exit", ->
         callback?()
+
+task "all", "serve the files and watch the coffeescript", ->
+    invoke "coffee:watch"
+    invoke "server"
 
 task "server", "serve the static files", ->
     tap = new takeapeek
