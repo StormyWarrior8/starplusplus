@@ -12,7 +12,7 @@ spawn = (cmd, options, callback) ->
 
 task "server", "serve the static files", ->
     tap = new takeapeek
-        directory: "."
+        directory: "app"
         index: true
         dotfiles: true
         port: 3141
