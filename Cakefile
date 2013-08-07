@@ -20,7 +20,7 @@ task "server", "serve the static files", ->
     tap.listen()
 
 task "coffee:compile", "Compile the coffeescript", ->
-    spawn path.coffeescript, "--compile --output lib/ src/"
+    spawn path.coffeescript, "--compile --output app/lib/ app/src/"
 
 task "coffee:watch", "Compile and watch the coffeescript", ->
-    spawn path.coffeescript, "--watch --compile --output lib/ src/"
+    spawn path.coffeescript, "--watch --compile --output app/lib/ app/src/"
