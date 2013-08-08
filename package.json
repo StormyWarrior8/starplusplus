@@ -13,6 +13,6 @@
   "license": "BSD",
   "devDependencies": {
     "coffee-script": "~1.6.3",
-    "takeapeek": "~0.1.7"
+    "takeapeek": "~0.1.8"
   }
 }
