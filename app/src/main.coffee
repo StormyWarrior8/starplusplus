@@ -1,7 +1,30 @@
 $(document).ready ->
-    root = new Firebase "https://starplusplus.firebaseIO-demo.com/"
-    root.set "Firebase is awesome!"
-    console.log "Set data"
-    root.on "value", (snapshot) ->
-        console.log "Got data:", snapshot.val()
-        $("#data").html snapshot.val()
+    root = new Firebase "https://starplusplus.firebaseIO.com/"
+    auth = new FirebaseSimpleLogin root, (error, user) ->
+        if error then throw error
+        console.log user
+        if user
+            $("#loginLogout").html "Logout"
+        else
+             $("#loginLogout").html "Login"
+
+        $("#loginLogout").click ->
+            if user
+                auth.logout()
+            else
+                auth.login "github", scope: "user"
+
+        $("#listStars").click ->
+            $.ajax
+                url: "https://api.github.com/user/starred"
+                dataType: "json"
+                data:
+                    access_token: user.accessToken
+                success: (data, textStatus, jqXHR) ->
+                    $("#stars > ul").remove()
+                    list = $("<ul></ul>", class: "list-unstyled")
+                    for star in data
+                        item = $("<li></li>")
+                        item.html star.name
+                        list.append item
+                    $("#stars").append list
