@@ -15,12 +15,14 @@ $(document).ready ->
                 auth.login "github", scope: "user"
 
         $("#listStars").click ->
+            console.log user
             $.ajax
                 url: "https://api.github.com/user/starred"
                 dataType: "json"
                 data:
                     access_token: user.accessToken
                 success: (data, textStatus, jqXHR) ->
+                    console.log jqXHR.getResponseHeader("link")
                     $("#stars > ul").remove()
                     list = $("<ul></ul>", class: "list-unstyled")
                     for star in data
@@ -28,3 +30,4 @@ $(document).ready ->
                         item.html star.name
                         list.append item
                     $("#stars").append list
+                    console.log $("#stars > ul > li").length
