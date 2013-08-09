@@ -13,6 +13,8 @@
   "license": "BSD",
   "devDependencies": {
     "coffee-script": "~1.6.3",
-    "takeapeek": "~0.1.9"
+    "takeapeek": "~0.1.9",
+    "browserify": "~2.26.0",
+    "nodemon": "~0.7.10"
   }
 }
