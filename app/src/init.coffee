@@ -11,6 +11,8 @@ require.config
             exports: "_"
         jquery:
             exports: "$"
+        ko:
+            exports: "ko"
         bootstrap:
             deps: ["jquery"]
         firebase:
@@ -19,6 +21,8 @@ require.config
             deps: ["firebase"]
             exports: "FirebaseSimpleLogin"
 
-require ["jquery", "lodash", "ko", "main"], ($, _, ko, main) ->
+require ["jquery", "lodash", "ko", "bootstrap", "SPPViewModal"], ($, _, ko, bootstrap, SPPViewModal) ->
     $(document).ready ->
-        main.go()
+        console.log "Starting"
+        ko.applyBindings(new SPPViewModal())
+        console.log "Done"

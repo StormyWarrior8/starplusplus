@@ -5,3 +5,8 @@ body {
 .align-center {
     text-align: center;
 }
+
+.login-button {
+    padding-left: 30px;
+    padding-right: 30px;
+}
