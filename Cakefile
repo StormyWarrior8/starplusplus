@@ -16,7 +16,6 @@ spawn = (cmd, options, callback) ->
 
 task "all", "serve the files and watch the coffeescript", ->
     invoke "coffee:watch"
-    invoke "browserify:watch"
     invoke "server"
 
 task "server", "serve the static files", ->
@@ -33,9 +32,3 @@ task "coffee:compile", "Compile the coffeescript", ->
 
 task "coffee:watch", "Compile and watch the coffeescript", ->
     spawn path.coffeescript, "--watch --compile --map --output app/lib/ app/src/"
-
-task "browserify:compile", "compiles the browserify", ->
-    spawn path.browserify, "-e app/lib/main.js -o app/main.js"
-
-task "browserify:watch", "watch and re-browserify", ->
-    spawn path.nodemon, "-w app/lib -x #{path.browserify} --debug --entry app/lib/main.js --outfile app/main.js"
