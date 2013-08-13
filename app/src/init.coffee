@@ -6,6 +6,7 @@ require.config
         bootstrap: "../vendor/bootstrap/js/bootstrap.min"
         firebase: "../vendor/firebase/firebase"
         firebaseSimpleLogin: "../vendor/firebase/firebase-simple-login"
+        async: "../vendor/async/async"
     shim:
         lodash:
             exports: "_"
@@ -20,7 +21,10 @@ require.config
         firebaseSimpleLogin:
             deps: ["firebase"]
             exports: "FirebaseSimpleLogin"
+        async:
+            exports: "async"
 
-require ["jquery", "lodash", "ko", "bootstrap", "SPPViewModal"], ($, _, ko, bootstrap, SPPViewModal) ->
-    $(document).ready ->
-        ko.applyBindings(new SPPViewModal())
+require ["jquery", "lodash", "ko", "bootstrap", "SPPViewModal"], 
+    ($, _, ko, bootstrap, SPPViewModal) ->
+        $(document).ready ->
+            ko.applyBindings(new SPPViewModal())

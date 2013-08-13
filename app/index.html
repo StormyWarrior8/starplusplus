@@ -34,9 +34,13 @@
             </div>
             <!-- Logged in -->
             <div class="row" style="display: none;" data-bind="visible: user().loggedIn()">
-                <div class="col-lg-10 col-lg-offset-1 align-center">
-                    <p>You are logged in</p>
-                    <p data-bind="text: user().username"></p>
+                <div class="col-lg-10 col-lg-offset-1 align-center" data-bind="with: user()">
+                    <p>You are logged in as <strong data-bind="text: username"></strong></p>
+                    <p>You have <strong data-bind="text: stars().length"></strong> stars</p>
+                    <hr>
+                    <ul class="list-unstyled" data-bind="foreach: stars">
+                        <li data-bind="text: name"></li>
+                    </ul>
                 </div>
             </div>
         </div>
