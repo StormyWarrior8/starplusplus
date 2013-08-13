@@ -1,10 +1,5 @@
-define ["ko"], (ko) ->
+define ["ko", "UserViewModal"], (ko, UserViewModal) ->
     return class SPPViewModal
         constructor: ->
-            @loggedIn = ko.observable false
-            @login = ->
-                @loggedIn true
-                console.log "Logged in"
-            @logout = ->
-                @loggedIn false
-                console.log "Logged out"
+            @user = ko.observable new UserViewModal()
+            
