@@ -1,7 +1,10 @@
 define ["ko"], (ko) ->
     return class SPPViewModal
         constructor: ->
-            @firstname = ko.observable "Gio"
-            @lastname = ko.observable "d'Amelio"
-            @fullname = ko.computed =>
-                return @firstname() + " " + @lastname()
+            @loggedIn = ko.observable false
+            @login = ->
+                @loggedIn true
+                console.log "Logged in"
+            @logout = ->
+                @loggedIn false
+                console.log "Logged out"

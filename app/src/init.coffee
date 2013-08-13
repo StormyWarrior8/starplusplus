@@ -23,6 +23,4 @@ require.config
 
 require ["jquery", "lodash", "ko", "bootstrap", "SPPViewModal"], ($, _, ko, bootstrap, SPPViewModal) ->
     $(document).ready ->
-        console.log "Starting"
         ko.applyBindings(new SPPViewModal())
-        console.log "Done"

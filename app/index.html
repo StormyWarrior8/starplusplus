@@ -17,25 +17,17 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">Star++</a>
+                <button type="button" class="btn btn-success navbar-btn pull-right" style="display: none;" data-bind="visible: loggedIn(), click: logout">Logout</button>
             </div>
         </div>
 
         <div class="container">
-            <div class="row">
+            <div class="row" data-bind="visible: !loggedIn()">
                 <div class="col-lg-10 col-lg-offset-1 align-center">
                     <div class="jumbotron">
                         <h1>Star++</h1>
                         <p>A better way to organize your github stars. To get started, just login with your github account.</p>
-                        <button class="btn btn-success btn-lg login-button">Login!</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 align-center">
-                    <div class="align-center">
-                        <input type="text" data-bind="value: firstname, valueUpdate: 'afterkeydown'" />
-                        <input type="text" data-bind="value: lastname, valueUpdate: 'afterkeydown'" />
-                        <p data-bind="text: fullname"></p>
+                        <button class="btn btn-success btn-lg login-button" data-bind="click: login">Login</button>
                     </div>
                 </div>
             </div>
