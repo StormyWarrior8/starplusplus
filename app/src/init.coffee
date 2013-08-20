@@ -23,6 +23,9 @@ require.config
             exports: "FirebaseSimpleLogin"
         async:
             exports: "async"
+        simpleGrid:
+            deps: ["ko"]
+            exports: "simpleGrid"
 
 require ["jquery", "lodash", "ko", "bootstrap", "SPPViewModal"], 
     ($, _, ko, bootstrap, SPPViewModal) ->

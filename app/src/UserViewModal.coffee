@@ -1,11 +1,11 @@
-define ["jquery", "ko", "firebase", "firebaseSimpleLogin", "utils/getStars"], 
-    ($, ko, firebase, firebaseSimpleLogin, getStars) ->
+define ["jquery", "ko", "firebase", "firebaseSimpleLogin", "utils/getStars", "GridViewModal"], 
+    ($, ko, firebase, firebaseSimpleLogin, getStars, GridViewModal) ->
         return class UserViewModal
             constructor: ->
                 # Setup the ViewModal
                 @username = ko.observable ""
                 @loggedIn = ko.observable false
-                @stars = ko.observableArray()
+                @stars = new GridViewModal()
 
                 @afterLogout = =>
                     @loggedIn false
@@ -33,7 +33,7 @@ define ["jquery", "ko", "firebase", "firebaseSimpleLogin", "utils/getStars"],
                     @username user.username
                     getStars user.accessToken, (stars) =>
                         for star in stars
-                            @stars.push new ko.observable(star)
+                            @stars.items.push new ko.observable(star)
 
                 @logout = =>
                     auth.logout()
