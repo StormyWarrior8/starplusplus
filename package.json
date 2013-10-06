@@ -8,7 +8,6 @@
     "docpad-plugin-livereload": "~2.5.3",
     "docpad-plugin-jade": "~2.6.0",
     "docpad-plugin-marked": "~2.1.1",
-    "docpad-plugin-sass": "~2.6.1",
     "docpad-plugin-ghpages": "~2.4.0"
   },
   "engines": {

@@ -1,0 +1,26 @@
+doctype 5
+html
+    head
+        title Star++
+
+        // Bootstrap CSS
+        link(href="bootstrap/css/bootstrap.min.css", rel="stylesheet")
+
+        // My CSS
+        link(href="main.css", rel="stylesheet")
+
+        // Bootstrap JS
+        script(src="bootstrap/js/bootstrap.min.js", type="text/javascript")
+        != getBlock("scripts").toHTML()
+    body
+        div.navbar.navbar-inverse.navbar-fixed-top
+            div.container
+                div.navbar-header
+                    a.navbar-brand(href="#") Hello World
+                div.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li.active
+                            a(href="#") Home
+                        li
+                            a(href="/about") About
+        div.container!= content
