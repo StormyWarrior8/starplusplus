@@ -1,6 +1,9 @@
 --- yaml
 layout: "main"
 ---
+//- Parsley JS
+script(src="parsley/parsley.min.js", type="text/javascript")
+
 //- My JS
 script(src="index.js", type="text/javascript")
 
@@ -21,49 +24,49 @@ div.jumbotron
 div#createModal.modal(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true").form-horizontal
     div.modal-dialog
             div.modal-content
-                div.modal-header
-                    button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
-                    h4.modal-title Create Account
-                div.modal-body
-                    //- The create account form itself
-                    form
-                        div.form-group
-                            label(for="createEmail").col-lg-2.control-label Email
-                            div.col-lg-10
-                                input(type="email", id="createEmail", placeholder="Email").form-control
-                        div.form-group
-                            label(for="createUsername").col-lg-2.control-label Username
-                            div.col-lg-10
-                                input(type="text", id="createUsername", placeholder="Username").form-control
-                        div.form-group
-                            label(for="createPassword").col-lg-2.control-label Password
-                            div.col-lg-10
-                                input(type="password", id="createPassword", placeholder="Password").form-control
-                        div.form-group
-                            label(for="createConfirmPassword").col-lg-2.control-label Confirm Password
-                            div.col-lg-10
-                                input(type="password", id="createConfirmPassword", placeholder="Confirm Password").form-control
-                div.modal-footer
-                    button.btn.btn-success#create(type="button") Create Account 
-                        i.icon-plus
+                //- The create account form itself
+                form#createForm(data-validate="parsley")
+                    div.modal-header
+                        button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                        h4.modal-title Create Account
+                    div.modal-body
+                            div.form-group
+                                label(for="createEmail").col-lg-2.control-label Email
+                                div.col-lg-10
+                                    input(type="email", data-required="true", id="createEmail", placeholder="Email").form-control
+                            div.form-group
+                                label(for="createUsername").col-lg-2.control-label Username (Minimum Length 6)
+                                div.col-lg-10
+                                    input(type="text", data-minlength="6", data-required="true", id="createUsername", placeholder="Username").form-control
+                            div.form-group
+                                label(for="createPassword").col-lg-2.control-label Password (Minimum Length 6)
+                                div.col-lg-10
+                                    input(type="password", data-minlength="6", data-required="true", id="createPassword", placeholder="Password").form-control
+                            div.form-group
+                                label(for="createConfirmPassword").col-lg-2.control-label Confirm Password
+                                div.col-lg-10
+                                    input(type="password", data-minlength="6", data-confirmpassword="true", data-required="true", id="createConfirmPassword", placeholder="Confirm Password").form-control
+                    div.modal-footer
+                        button.btn.btn-success#create(type="submit") Create Account 
+                            i.icon-plus
 //- The modal to login to an account
 div#loginModal.modal(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true").form-horizontal
     div.modal-dialog
             div.modal-content
-                div.modal-header
-                    button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
-                    h4.modal-title Login
-                div.modal-body
-                    //- The login form itself
-                    form
-                        div.form-group
-                            label(for="loginUsername").col-lg-2.control-label Username
-                            div.col-lg-10
-                                input(type="text", id="loginUsername", placeholder="Username").form-control
-                        div.form-group
-                            label(for="loginPassword").col-lg-2.control-label Password
-                            div.col-lg-10
-                                input(type="password", id="loginPassword", placeholder="Password").form-control
-                div.modal-footer
-                    button.btn.btn-success#login(type="button") Login
-                        i.icon-plus
+                //- The login form itself
+                form#loginForm(data-validate="parsley")
+                    div.modal-header
+                        button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                        h4.modal-title Login
+                    div.modal-body
+                            div.form-group
+                                label(for="loginUsername").col-lg-2.control-label Username
+                                div.col-lg-10
+                                    input(type="text", id="loginUsername", placeholder="Username").form-control
+                            div.form-group
+                                label(for="loginPassword").col-lg-2.control-label Password
+                                div.col-lg-10
+                                    input(type="password", id="loginPassword", placeholder="Password").form-control
+                    div.modal-footer
+                        button.btn.btn-success#login(type="submit") Login 
+                            i.icon-plus

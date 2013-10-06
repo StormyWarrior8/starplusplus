@@ -5,7 +5,7 @@ createAccount = ->
         password: $("#createPassword").val()
     ,
         success: (response) ->
-            window.location.href = "/stars.html";
+            window.location.href = "/stars.html"
 
 login = ->
     promise = Kinvey.User.login
@@ -13,7 +13,7 @@ login = ->
         password: $("#loginPassword").val()
     ,
         success: (response) ->
-            window.location.href = "/stars.html";
+            window.location.href = "/stars.html"
 
 $ ->
     promise = Kinvey.init
@@ -22,12 +22,13 @@ $ ->
 
     # This runs after after we get the connection to kinvey
     promise.then (activeUser) ->
-        # Create account
-        $("#create").click ->
-            createAccount()
+        # If the user is already logged in, redirect them
+        if activeUser
+            window.location.href = "/stars.html"
 
         # Login
-        $("#login").click ->
+        $("#loginForm").submit (event) ->
+            event.preventDefault()
             login()
     ,
         (error) ->
@@ -41,4 +42,34 @@ $ ->
     $("#loginModalButton").click ->
         $("#loginModal").modal()
 
-    
+    # Do validations
+    $("#createForm").parsley
+        trigger: "keyup change"
+        validators:
+            # Check if the passwords match
+            confirmpassword: (val) ->
+                console.log "Validating pass match"
+                if $("#createPassword").val() == val
+                    return true
+                else
+                    return false                
+        messages:
+            confirmpassword: "The passwords should match"
+        listeners:
+            # Add css on the errors
+            onFieldError: ( elem, constraints, ParsleyField ) ->
+                $(elem).parent().parent().addClass("has-error")
+            onFieldSuccess:  (elem, constraints, ParsleyField ) ->
+                $(elem).parent().parent().removeClass("has-error")
+            onFormSubmit: ( isFormValid, event, ParsleyForm ) ->
+                event.preventDefault()
+                if isFormValid
+                    promise = Kinvey.User.exists $("#createUsername").val(),
+                        success: (usernameExists) ->
+                            console.log usernameExists
+                            if not usernameExists
+                                createAccount()
+                            else
+                                alert("Username is taken")
+                                $("#createUsername").val("")
+                                $("#createUsername").select()

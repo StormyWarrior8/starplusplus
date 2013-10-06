@@ -1,7 +1,7 @@
 logout = ->
     Kinvey.User.logout
         success: ->
-            window.location.href = "/";
+            window.location.href = "/"
 
 $ ->
     promise = Kinvey.init
