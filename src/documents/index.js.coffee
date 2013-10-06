@@ -16,6 +16,7 @@ login = ->
         window.location.href = "/stars.html"
     , (error) ->
         alert("Your username or password was incorrect")
+        $("#login").prop "disabled", false
 
 $ ->
     promise = Kinvey.init
@@ -61,6 +62,7 @@ $ ->
             onFormSubmit: ( isFormValid, event, ParsleyForm ) ->
                 event.preventDefault()
                 if isFormValid
+                    $("#create").prop "disabled", true
                     promise = Kinvey.User.exists $("#createUsername").val(),
                         success: (usernameExists) ->
                             if not usernameExists
@@ -69,6 +71,7 @@ $ ->
                                 alert("Username is taken")
                                 $("#createUsername").val("")
                                 $("#createUsername").select()
+                                $("#create").prop "disabled", false
 
     $("#loginForm").parsley
         trigger: "keyup change"
@@ -81,4 +84,5 @@ $ ->
             onFormSubmit: ( isFormValid, event, ParsleyForm ) ->
                 event.preventDefault()
                 if isFormValid
+                    $("#login").prop "disabled", true
                     login()
