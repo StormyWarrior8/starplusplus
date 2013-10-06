@@ -3,23 +3,28 @@ html
     head
         title Star++
 
-        // Bootstrap CSS
+        //- Bootstrap CSS
         link(href="bootstrap/css/bootstrap.min.css", rel="stylesheet")
 
-        // Font Awesome CSS
+        //- Font Awesome CSS
         link(href="font-awesome/css/font-awesome.min.css", rel="stylesheet")
 
-        // My CSS
+        //- My CSS
         link(href="main.css", rel="stylesheet")
 
-        // jQuery
+        //- jQuery
         script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", type="text/javascript")
 
-        // Kinvey JS
+        //- Kinvey JS
         script(src="//da189i1jfloii.cloudfront.net/js/kinvey-html5-1.1.1.min.js", type="text/javascript")
 
-        // Bootstrap JS
+        //- Bootstrap JS
         script(src="bootstrap/js/bootstrap.min.js", type="text/javascript")
+
+        //- My JS
+        script(src="main.js", type="text/javascript")
+
+        //- To load livereload code
         != getBlock("scripts").toHTML()
     body
         div.navbar.navbar-inverse.navbar-fixed-top

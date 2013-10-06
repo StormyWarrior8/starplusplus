@@ -1,11 +1,62 @@
 --- yaml
 layout: "main"
 ---
+//- Main welcom message
 div.jumbotron
     div.container
         div.text-center
             h1 Star++
             p A better way to manage your Github stars.
-                button(type="button").btn.btn-success#login Login 
-                    i.icon-arrow-right
 
+            button(type="button").btn.btn-success#createModalButton Create Account 
+                i.icon-plus
+
+            button(type="button").btn.btn-success#loginModalButton Login 
+                i.icon-arrow-right
+
+//- The modal to create an account
+div#createModal.modal(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true").form-horizontal
+    div.modal-dialog
+            div.modal-content
+                div.modal-header
+                    button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                    h4.modal-title Create Account
+                div.modal-body
+                    //- The create account form itself
+                    form
+                        div.form-group
+                            label(for="createEmail").col-lg-2.control-label Email
+                            div.col-lg-10
+                                input(type="email", id="createEmail", placeholder="Enter email").form-control
+                        div.form-group
+                            label(for="createPassword").col-lg-2.control-label Password
+                            div.col-lg-10
+                                input(type="password", id="createPassword", placeholder="Password").form-control
+                        div.form-group
+                            label(for="createConfirmPassword").col-lg-2.control-label Confirm Password
+                            div.col-lg-10
+                                input(type="password", id="createConfirmPassword", placeholder="Confirm Password").form-control
+                div.modal-footer
+                    button.btn.btn-success#create(type="button") Create Account 
+                        i.icon-plus
+//- The modal to create an account
+div#loginModal.modal(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true").form-horizontal
+    div.modal-dialog
+            div.modal-content
+                div.modal-header
+                    button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                    h4.modal-title Login
+                div.modal-body
+                    //- The login form itself
+                    form
+                        div.form-group
+                            label(for="createEmail").col-lg-2.control-label Email
+                            div.col-lg-10
+                                input(type="email", id="createEmail", placeholder="Enter email").form-control
+                        div.form-group
+                            label(for="createPassword").col-lg-2.control-label Password
+                            div.col-lg-10
+                                input(type="password", id="createPassword", placeholder="Password").form-control
+                div.modal-footer
+                    button.btn.btn-success#login(type="button") Login
+                        i.icon-plus

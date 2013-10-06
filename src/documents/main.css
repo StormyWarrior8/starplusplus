@@ -5,3 +5,7 @@ body {
 #logout {
     display: none;
 }
+
+.modal {
+    overflow-y: auto !important;
+}
