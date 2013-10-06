@@ -21,16 +21,13 @@ html
         //- Bootstrap JS
         script(src="bootstrap/js/bootstrap.min.js", type="text/javascript")
 
-        //- My JS
-        script(src="main.js", type="text/javascript")
-
         //- To load livereload code
         != getBlock("scripts").toHTML()
     body
         div.navbar.navbar-inverse.navbar-fixed-top
             div.container
                 div.navbar-header
-                    a.navbar-brand(href="#") Star++
+                    a.navbar-brand(href="/") Star++
                 div.collapse.navbar-collapse
                     button(type="button").navbar-btn.btn.btn-success.pull-right#logout Logout
         div.container!= content
