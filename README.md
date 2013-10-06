@@ -1,4 +1,3 @@
-# Your [DocPad](http://docpad.org) Project
+# Star++
 
-## License
-Copyright &copy; 2013+ All rights reserved.
+A better way to manage your Github stars
