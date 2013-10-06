@@ -3,17 +3,19 @@ createAccount = ->
         email: $("#createEmail").val()
         username: $("#createUsername").val()
         password: $("#createPassword").val()
-    ,
-        success: (response) ->
-            window.location.href = "/stars.html"
+    promise.then (response) ->
+        window.location.href = "/stars.html"
+    , (error) ->
+        console.log error    
 
 login = ->
     promise = Kinvey.User.login
         username: $("#loginUsername").val()
         password: $("#loginPassword").val()
-    ,
-        success: (response) ->
-            window.location.href = "/stars.html"
+    promise.then (response) ->
+        window.location.href = "/stars.html"
+    , (error) ->
+        alert("Your username or password was incorrect")
 
 $ ->
     promise = Kinvey.init
@@ -25,11 +27,6 @@ $ ->
         # If the user is already logged in, redirect them
         if activeUser
             window.location.href = "/stars.html"
-
-        # Login
-        $("#loginForm").submit (event) ->
-            event.preventDefault()
-            login()
     ,
         (error) ->
             console.log "Error", error
@@ -66,10 +63,22 @@ $ ->
                 if isFormValid
                     promise = Kinvey.User.exists $("#createUsername").val(),
                         success: (usernameExists) ->
-                            console.log usernameExists
                             if not usernameExists
                                 createAccount()
                             else
                                 alert("Username is taken")
                                 $("#createUsername").val("")
                                 $("#createUsername").select()
+
+    $("#loginForm").parsley
+        trigger: "keyup change"
+        listeners:
+            # Add css on the errors
+            onFieldError: ( elem, constraints, ParsleyField ) ->
+                $(elem).parent().parent().addClass("has-error")
+            onFieldSuccess:  (elem, constraints, ParsleyField ) ->
+                $(elem).parent().parent().removeClass("has-error")
+            onFormSubmit: ( isFormValid, event, ParsleyForm ) ->
+                event.preventDefault()
+                if isFormValid
+                    login()

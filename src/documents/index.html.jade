@@ -62,11 +62,11 @@ div#loginModal.modal(tabindex="-1", role="dialog", aria-labelledby="myModalLabel
                             div.form-group
                                 label(for="loginUsername").col-lg-2.control-label Username
                                 div.col-lg-10
-                                    input(type="text", id="loginUsername", placeholder="Username").form-control
+                                    input(type="text", data-required="true", id="loginUsername", placeholder="Username").form-control
                             div.form-group
                                 label(for="loginPassword").col-lg-2.control-label Password
                                 div.col-lg-10
-                                    input(type="password", id="loginPassword", placeholder="Password").form-control
+                                    input(type="password", data-required="true", id="loginPassword", placeholder="Password").form-control
                     div.modal-footer
                         button.btn.btn-success#login(type="submit") Login 
                             i.icon-plus
