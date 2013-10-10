@@ -4,7 +4,7 @@ createAccount = ->
         username: $("#createUsername").val()
         password: $("#createPassword").val()
     promise.then (response) ->
-        window.location.href = "/stars.html"
+        window.location.replace("https://github.com/login/oauth/authorize?client_id=1d21cb5c8bbfe551cc30&scope=user")
     , (error) ->
         console.log error    
 
@@ -13,7 +13,7 @@ login = ->
         username: $("#loginUsername").val()
         password: $("#loginPassword").val()
     promise.then (response) ->
-        window.location.href = "/stars.html"
+        window.location.href = "/stars"
     , (error) ->
         alert("Your username or password was incorrect")
         $("#login").prop "disabled", false
@@ -46,7 +46,6 @@ $ ->
         validators:
             # Check if the passwords match
             confirmpassword: (val) ->
-                console.log "Validating pass match"
                 if $("#createPassword").val() == val
                     return true
                 else
