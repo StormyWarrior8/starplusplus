@@ -2,8 +2,9 @@
   "name": "starplusplus",
   "version": "0.1.0",
   "description": "A better way to manage your Github stars",
+  "author": "Gio d'Amelio",
   "dependencies": {
-    "docpad": "~6.53.1",
+    "docpad": "~6.53.4",
     "docpad-plugin-coffeescript": "~2.2.2",
     "docpad-plugin-livereload": "~2.5.3",
     "docpad-plugin-jade": "~2.6.0",
@@ -18,5 +19,14 @@
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {
     "start": "node_modules/docpad/bin/docpad-server"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/giodamelio/starplusplus.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giodamelio/starplusplus/issues"
   }
 }
