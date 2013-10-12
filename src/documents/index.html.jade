@@ -1,72 +1,11 @@
 --- yaml
 layout: "main"
 ---
-//- Parsley JS
-script(src="parsley/parsley.min.js", type="text/javascript")
-
 //- My JS
-script(src="index.js", type="text/javascript")
+script(src="main.js", type="text/javascript")
 
-//- Main welcom message
-div.jumbotron
-    div.container
-        div.text-center
-            h1 Star++
-            p A better way to manage your Github stars.
-
-            button(type="button").btn.btn-success#createModalButton Create Account 
-                i.icon-plus
-
-            button(type="button").btn.btn-success#loginModalButton Login 
-                i.icon-arrow-right
-
-//- The modal to create an account
-div#createModal.modal(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true").form-horizontal
-    div.modal-dialog
-            div.modal-content
-                //- The create account form itself
-                form#createForm(data-validate="parsley")
-                    div.modal-header
-                        button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
-                        h4.modal-title Create Account
-                    div.modal-body
-                            div.form-group
-                                label(for="createEmail").col-lg-2.control-label Email
-                                div.col-lg-10
-                                    input(type="email", data-required="true", id="createEmail", placeholder="Email").form-control
-                            div.form-group
-                                label(for="createUsername").col-lg-2.control-label Username (Minimum Length 6)
-                                div.col-lg-10
-                                    input(type="text", data-minlength="6", data-required="true", id="createUsername", placeholder="Username").form-control
-                            div.form-group
-                                label(for="createPassword").col-lg-2.control-label Password (Minimum Length 6)
-                                div.col-lg-10
-                                    input(type="password", data-minlength="6", data-required="true", id="createPassword", placeholder="Password").form-control
-                            div.form-group
-                                label(for="createConfirmPassword").col-lg-2.control-label Confirm Password
-                                div.col-lg-10
-                                    input(type="password", data-minlength="6", data-confirmpassword="true", data-required="true", id="createConfirmPassword", placeholder="Confirm Password").form-control
-                    div.modal-footer
-                        button.btn.btn-success#create(type="submit") Create Account 
-                            i.icon-plus
-//- The modal to login to an account
-div#loginModal.modal(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true").form-horizontal
-    div.modal-dialog
-            div.modal-content
-                //- The login form itself
-                form#loginForm(data-validate="parsley")
-                    div.modal-header
-                        button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
-                        h4.modal-title Login
-                    div.modal-body
-                            div.form-group
-                                label(for="loginUsername").col-lg-2.control-label Username
-                                div.col-lg-10
-                                    input(type="text", data-required="true", id="loginUsername", placeholder="Username").form-control
-                            div.form-group
-                                label(for="loginPassword").col-lg-2.control-label Password
-                                div.col-lg-10
-                                    input(type="password", data-required="true", id="loginPassword", placeholder="Password").form-control
-                    div.modal-footer
-                        button.btn.btn-success#login(type="submit") Login 
-                            i.icon-plus
+div(ng-app="")
+    h1 {{"Hello World"}}
+    p What is your name?
+        input(type="text", ng-model="data.name")
+    h3 {{"Hello " + data.name}}
