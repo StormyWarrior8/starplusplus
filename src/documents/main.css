@@ -2,14 +2,10 @@ body {
     padding-top: 70px;
 }
 
-#logout {
-    display: none;
-}
-
-.modal {
-    overflow-y: auto !important;
-}
-
 .margin-right {
     margin-right: 10px;
+}
+
+.center-text {
+    text-align: center;
 }

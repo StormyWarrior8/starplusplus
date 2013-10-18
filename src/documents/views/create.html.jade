@@ -1,1 +1,26 @@
-h1 Create Account
+div.container
+    div.row
+        div.col-lg-8.col-lg-offset-2
+            h2.center-text Create Account
+            hr
+            form(novalidate).form-horizontal
+                div.form-group
+                    label.col-lg-4.control-label Username
+                    div.col-lg-8
+                        input(type="text", placeholder="Username").form-control
+                div.form-group
+                    label.col-lg-4.control-label Email
+                    div.col-lg-8
+                        input(type="email", placeholder="Email").form-control
+                div.form-group
+                    label.col-lg-4.control-label Password
+                    div.col-lg-8
+                        input(type="password", placeholder="Password").form-control
+                div.form-group
+                    label.col-lg-4.control-label Confirm Password
+                    div.col-lg-8
+                        input(type="password", placeholder="Confirm Password").form-control
+                div.form-group
+                    div.col-lg-8.col-lg-offset-4
+                        button(type="button").btn.btn-success Create Account
+            hr

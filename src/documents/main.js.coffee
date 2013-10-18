@@ -14,8 +14,11 @@ StarPlusPlus.config ($routeProvider) ->
         .otherwise
             redirectTo: "/"
 
+StarPlusPlus.controller "MainController", ($scope) ->
+    $scope.message = "MainController"
+
 StarPlusPlus.controller "HomeController", ($scope) ->
-    $scope.message = "Hello World!"
+    $scope.message = "HomeController"
 
 StarPlusPlus.controller "LoginController", ($scope) ->
     $scope.message = "Hello World!"

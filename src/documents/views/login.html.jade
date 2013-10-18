@@ -1,1 +1,18 @@
-h1 Login to Account
+div.container
+    div.row
+        div.col-lg-8.col-lg-offset-2
+            h2.center-text Login
+            hr
+            form(novalidate).form-horizontal
+                div.form-group
+                    label.col-lg-4.control-label Username
+                    div.col-lg-8
+                        input(type="text", placeholder="Username").form-control
+                div.form-group
+                    label.col-lg-4.control-label Password
+                    div.col-lg-8
+                        input(type="password", placeholder="Password").form-control
+                div.form-group
+                    div.col-lg-8.col-lg-offset-4
+                        button(type="button").btn.btn-success Login
+            hr
