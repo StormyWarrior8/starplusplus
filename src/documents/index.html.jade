@@ -1,11 +1,6 @@
 --- yaml
 layout: "main"
 ---
-//- My JS
+div(ng-app="StarPlusPlus")
+    ng-view
 script(src="main.js", type="text/javascript")
-
-div(ng-app="")
-    h1 {{"Hello World"}}
-    p What is your name?
-        input(type="text", ng-model="data.name")
-    h3 {{"Hello " + data.name}}
