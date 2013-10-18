@@ -9,3 +9,7 @@ body {
 .modal {
     overflow-y: auto !important;
 }
+
+.margin-right {
+    margin-right: 10px;
+}
