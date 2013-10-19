@@ -29,9 +29,5 @@ html
 
         //- To load livereload code
         != getBlock("scripts").toHTML()
-    body
-        div.navbar.navbar-inverse.navbar-fixed-top
-            div.container
-                div.navbar-header
-                    a.navbar-brand(href="#/") Star++
-        div.container!= content
+    body(ng-app="StarPlusPlus", ng-controller="MainController")!= content
+        

@@ -1,6 +1,10 @@
 --- yaml
 layout: "main"
 ---
-div(ng-app="StarPlusPlus", ng-controller="MainController")
+div.navbar.navbar-inverse.navbar-fixed-top
+    div.container
+        div.navbar-header
+            a.navbar-brand(href="#/") Star++
+div.container
     ng-view
 script(src="bundle.js", type="text/javascript")
