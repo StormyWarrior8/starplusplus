@@ -65,25 +65,19 @@ div.container
                                 | Password must be 128 or less characters long. 
                 //- Get password conformation
                 //- Validate:
-                //-     Required: true
-                //-     Minimum Length: 6
-                //-     Maximum Length: 128
+                //-     Passwords must match: true
                 div.form-group
                     label.col-lg-4.control-label Confirm Password
                     div.col-lg-8
                         //- Password confirmation input
                         input(type="password", name="confirmPassword", ng-model="user.confirmPassword", 
                             placeholder="Confirm Password",
-                            required, ng-minlength=6, ng-maxlength=128).form-control
+                            password-match="password").form-control
                         //- Validation warnings
                         div(ng-show="createForm.confirmPassword.$dirty && createForm.confirmPassword.$invalid").alert.alert-danger
                             | Invalid: 
-                            span(ng-show="createForm.confirmPassword.$error.required")
-                                | Password Required. 
-                            span(ng-show="createForm.confirmPassword.$error.minlength")
-                                | Password must be 6 or more characters long. 
-                            span(ng-show="createForm.confirmPassword.$error.maxlength")
-                                | Password must be 128 or less characters long. 
+                            span(ng-show="createForm.confirmPassword.$error.passwordMatch")
+                                | Passwords must match.  
                 div.form-group
                     div.col-lg-8.col-lg-offset-4
                         button(type="button", ng-click="create()",
