@@ -1,2 +1,3 @@
-module.exports = ($scope) ->
-    $scope.message = "MainController"
+module.exports = ($scope, kinvey) ->
+    $scope.delete = ->
+        kinvey.delete()

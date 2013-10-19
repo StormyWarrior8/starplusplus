@@ -5,6 +5,13 @@ div.navbar.navbar-inverse.navbar-fixed-top
     div.container
         div.navbar-header
             a.navbar-brand(href="#/") Star++
+        div.btn-group.navbar-btn.pull-right
+            button.btn.btn-success(type="button", ng-click="logout()") Logout
+            button.btn.btn-success.dropdown-toggle(type="button", data-toggle="dropdown")
+                span.caret
+            ul.dropdown-menu(role="menu")
+                li
+                    a(ng-click="delete()") Delete Account
 div.container
     ng-view
 script(src="bundle.js", type="text/javascript")

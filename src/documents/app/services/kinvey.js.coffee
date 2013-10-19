@@ -24,9 +24,32 @@ module.exports = ($http, $q) ->
 
             # Listen for the reply
             promise.success (data, status, headers, config) ->
-                # Set the cookie
+                # Set the cookies
                 cookie.set "kinveyAccessToken", data._kmd.authtoken,
                     expires: 1
+                cookie.set "kinveyUserId", data._id,
+                    expires: 1
+                deferred.resolve data
+
+            promise.error (data, status, headers, config) ->
+                deferred.reject data
+
+            return deferred.promise
+        delete: ->
+            deferred = $q.defer()
+
+            promise = $http
+                method: "DELETE"
+                url: baseHost + "user/#{kinveyCreds.appKey}/" + cookie.get("kinveyUserId")
+                headers:
+                    "Authorization": "Kinvey " + cookie.get("kinveyAccessToken")
+                params:
+                    "hard": true
+
+            promise.success (data, status, headers, config) ->
+                # Unset the cookies
+                cookie.remove "kinveyAccessToken"
+                cookie.remove "kinveyUserId"
                 deferred.resolve data
 
             promise.error (data, status, headers, config) ->
