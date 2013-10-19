@@ -86,5 +86,6 @@ div.container
                                 | Password must be 128 or less characters long. 
                 div.form-group
                     div.col-lg-8.col-lg-offset-4
-                        button(type="button", ng-disabled="createForm.$invalid").btn.btn-success Create Account
+                        button(type="button", ng-click="create()",
+                            ng-disabled="createForm.$invalid").btn.btn-success Create Account
             hr
