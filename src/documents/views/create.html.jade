@@ -15,7 +15,7 @@ div.container
                         //- Username input
                         input(type="text", ng-model="user.username", name="username", 
                             placeholder="Username", autofocus, 
-                            required, ng-minlength=6, ng-maxlength=32).form-control
+                            required, check-user-exists, ng-minlength=6, ng-maxlength=32).form-control
                         //- Validation warnings
                         div(ng-show="createForm.username.$dirty && createForm.username.$invalid").alert.alert-danger
                             | Invalid: 
@@ -25,6 +25,8 @@ div.container
                                 | Username must be 6 or more characters long. 
                             span(ng-show="createForm.username.$error.maxlength")
                                 | Username must be 32 or less characters long. 
+                            span(ng-show="createForm.username.$error.checkUserExists")
+                                | Username is already taken. 
                 //- Get email
                 //- Validate:
                 //-     Required: true
@@ -79,7 +81,10 @@ div.container
                             span(ng-show="createForm.confirmPassword.$error.passwordMatch")
                                 | Passwords must match.  
                 div.form-group
-                    div.col-lg-8.col-lg-offset-4
+                    div.col-lg-2.col-lg-offset-4
                         button(type="button", ng-click="create()",
                             ng-disabled="createForm.$invalid").btn.btn-success Create Account
+                    div.col-lg-6
+                        div(ng-show="createForm.$invalid").alert.alert-danger.button-alert
+                            | Error, please double check your entries
             hr

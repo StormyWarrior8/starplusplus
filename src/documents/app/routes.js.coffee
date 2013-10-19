@@ -9,5 +9,8 @@ module.exports = ($routeProvider) ->
         .when "/create",
             templateUrl: "views/create.html"
             controller: "CreateController"
+        .when "/stars",
+            templateUrl: "views/stars.html"
+            controller: "StarsController"
         .otherwise
             redirectTo: "/"

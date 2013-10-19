@@ -34,3 +34,8 @@ input.ng-valid.ng-dirty {
     margin-top: 10px;
     margin-bottom: 0px;
 }
+
+.button-alert {
+    margin-top: 0px;
+    margin-left: 10px;
+}
