@@ -15,7 +15,7 @@ docpadConfig =
             # Bundle the scripts the editor uses together
             command = """
                 #{rootPath}/node_modules/.bin/browserify
-                -e #{outPath}/app/main.js
+                -e #{outPath}/app/main.js -d
                 -o #{outPath}/bundle.js
                 """.replace(/\n/g,' ')
 
