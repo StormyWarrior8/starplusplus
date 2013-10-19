@@ -6,3 +6,6 @@ module.exports = ($scope, $location, kinvey) ->
     $scope.logout = ->
         kinvey.logout()
         $location.path "/"
+
+    $scope.isLoggedIn = ->
+        return kinvey.isLoggedIn()

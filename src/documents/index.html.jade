@@ -5,7 +5,7 @@ div.navbar.navbar-inverse.navbar-fixed-top
     div.container
         div.navbar-header
             a.navbar-brand(href="#/") Star++
-        div.btn-group.navbar-btn.pull-right
+        div(ng-show="isLoggedIn()").btn-group.navbar-btn.pull-right
             button.btn.btn-success(type="button", ng-click="logout()") Logout
             button.btn.btn-success.dropdown-toggle(type="button", data-toggle="dropdown")
                 span.caret

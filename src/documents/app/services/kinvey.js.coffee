@@ -7,6 +7,8 @@ module.exports = ($http, $q) ->
     # The app auth
     auth = "Basic " + btoa("#{kinveyCreds.appKey}:#{kinveyCreds.appSecret}")
 
+    loggedIn = false
+
     return {
         signup: (username, email, password) ->
             deferred = $q.defer()
@@ -24,6 +26,7 @@ module.exports = ($http, $q) ->
 
             # Listen for the reply
             promise.success (data, status, headers, config) ->
+                loggedIn = true
                 # Set the cookies
                 cookie.set "kinveyAccessToken", data._kmd.authtoken,
                     expires: 1
@@ -50,6 +53,7 @@ module.exports = ($http, $q) ->
 
             # Listen for the reply
             promise.success (data, status, headers, config) ->
+                loggedIn = true
                 # Set the cookies
                 cookie.set "kinveyAccessToken", data._kmd.authtoken,
                     expires: 1
@@ -71,6 +75,7 @@ module.exports = ($http, $q) ->
                     "Authorization": "Kinvey " + cookie.get("kinveyAccessToken")
 
             promise.success (data, status, headers, config) ->
+                loggedIn = false
                 # Unset the cookies
                 cookie.remove "kinveyAccessToken"
                 cookie.remove "kinveyUserId"
@@ -92,6 +97,7 @@ module.exports = ($http, $q) ->
                     "hard": true
 
             promise.success (data, status, headers, config) ->
+                loggedIn = false
                 # Unset the cookies
                 cookie.remove "kinveyAccessToken"
                 cookie.remove "kinveyUserId"
@@ -101,6 +107,8 @@ module.exports = ($http, $q) ->
                 deferred.reject data
 
             return deferred.promise
+        isLoggedIn: ->
+            return loggedIn
         checkUserExists: (username) ->
             deferred = $q.defer()
 
