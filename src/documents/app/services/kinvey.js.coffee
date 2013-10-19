@@ -35,6 +35,26 @@ module.exports = ($http, $q) ->
                 deferred.reject data
 
             return deferred.promise
+        logout: ->
+            deferred = $q.defer()
+
+            promise = $http
+                method: "POST"
+                url: baseHost + "user/#{kinveyCreds.appKey}/_logout"
+                headers:
+                    "Authorization": "Kinvey " + cookie.get("kinveyAccessToken")
+
+            promise.success (data, status, headers, config) ->
+                # Unset the cookies
+                cookie.remove "kinveyAccessToken"
+                cookie.remove "kinveyUserId"
+                deferred.resolve data
+
+            promise.error (data, status, headers, config) ->
+                deferred.reject data
+
+            return deferred.promise
+
         delete: ->
             deferred = $q.defer()
 

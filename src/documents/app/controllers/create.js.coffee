@@ -9,7 +9,6 @@ module.exports = ($scope, $location, kinvey) ->
     $scope.create = ->
         kinvey.signup($scope.user.username, $scope.user.email, $scope.user.password)
             .then (data) ->
-                console.log data
                 $location.path "/stars"
             , (data) ->
                 console.log data
