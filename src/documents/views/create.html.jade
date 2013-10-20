@@ -3,7 +3,7 @@ div.container
         div.col-lg-8.col-lg-offset-2
             h2.center-text Create Account
             hr
-            form(novalidate,name="createForm").form-horizontal
+            form(novalidate,name="createForm",ng-submit="create()").form-horizontal
                 //- Get username
                 //- Validate:
                 //-     Required: true
@@ -82,8 +82,7 @@ div.container
                                 | Passwords must match.  
                 div.form-group
                     div.col-lg-2.col-lg-offset-4
-                        button(type="button", ng-click="create()",
-                            ng-disabled="createForm.$invalid").btn.btn-success Create Account
+                        button(type="submit", ng-disabled="createForm.$invalid").btn.btn-success Create Account
                     div.col-lg-6
                         div(ng-show="createForm.$invalid").alert.alert-danger.button-alert
                             | Error, please double check your entries
