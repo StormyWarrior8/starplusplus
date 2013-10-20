@@ -7,7 +7,11 @@ module.exports = ($http, $q) ->
     # The app auth
     auth = "Basic " + btoa("#{kinveyCreds.appKey}:#{kinveyCreds.appSecret}")
 
-    loggedIn = false
+    # Check to see if we are already logged in
+    if cookie.get("kinveyAccessToken")
+        loggedIn = true
+    else
+        loggedIn = false
 
     return {
         signup: (username, email, password) ->
