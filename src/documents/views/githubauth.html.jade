@@ -1,0 +1,13 @@
+div.container
+    div.row
+        div.col-lg-8.col-lg-offset-2.center-text
+            h2 Authenticate with Github
+            p 
+                | To read and write your Github stars, we need to access your account via the 
+                a(href="http://developer.github.com/v3/") Github 
+                | API. To read the stars we need to access your account with the 
+                a(href="http://developer.github.com/v3/oauth/#scopes") 'user' scope.
+                |  While that gives us blanket access to read and write any of your user data, we promise will only access your stars.
+                | If you don't believe us, you can check out this applications source code on 
+                a(href="https://github.com/giodamelio/starplusplus") Github
+            button(type="button", ng-click="redirect()").btn.btn-success.margin-top Authenticate with Github

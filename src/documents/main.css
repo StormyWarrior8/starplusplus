@@ -3,9 +3,13 @@ body {
     padding-top: 70px;
 }
 
-/* Add a bit of margin to the right */
+/* Add a bit of margin */
 .margin-right {
     margin-right: 10px;
+}
+
+.margin-top {
+    margin-top: 10px;
 }
 
 /* Center some text */

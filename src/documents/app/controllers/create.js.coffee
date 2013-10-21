@@ -1,4 +1,4 @@
-module.exports = ($scope, $location, kinvey) ->
+module.exports = ($scope, $location, $window, kinvey) ->
     # Bootstrap for faster testing
     $scope.user = {}
     $scope.user.username = "giodamelio"
@@ -9,6 +9,6 @@ module.exports = ($scope, $location, kinvey) ->
     $scope.create = ->
         kinvey.signup($scope.user.username, $scope.user.email, $scope.user.password)
             .then (data) ->
-                $location.path "/stars"
+                $location.path "/githubauth"
             , (data) ->
                 console.log data

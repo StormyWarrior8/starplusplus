@@ -111,6 +111,23 @@ module.exports = ($http, $q) ->
                 deferred.reject data
 
             return deferred.promise
+        update: (data) ->
+            deferred = $q.defer()
+
+            promise = $http
+                method: "PUT"
+                url: baseHost + "user/#{kinveyCreds.appKey}/" + cookie.get("kinveyUserId")
+                headers:
+                    "Authorization": "Kinvey " + cookie.get("kinveyAccessToken")
+                data: data
+
+            promise.success (data, status, headers, config) ->
+                deferred.resolve data
+
+            promise.error (data, status, headers, config) ->
+                deferred.reject data
+
+            return deferred.promise
         isLoggedIn: ->
             return loggedIn
         checkUserExists: (username) ->
@@ -131,4 +148,19 @@ module.exports = ($http, $q) ->
                 deferred.reject data
 
             return deferred.promise
+        customEndpoint: (endpoint, data) ->
+            deferred = $q.defer()
+
+            promise = $http
+                method: "POST"
+                url: baseHost + "rpc/#{kinveyCreds.appKey}/custom/" + endpoint
+                headers:
+                    "Authorization": "Kinvey " + cookie.get("kinveyAccessToken")
+                data: data
+
+            promise.success (data, status, headers, config) ->
+                deferred.resolve data
+
+            promise.error (data, status, headers, config) ->
+                deferred.reject data
     }
