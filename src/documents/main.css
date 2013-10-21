@@ -17,6 +17,11 @@ body {
     text-align: center;
 }
 
+/* Make it red */
+.red {
+    color: red;
+}
+
 /* Form validatoin styles */
 input.ng-invalid.ng-dirty {
     border-color: #953b39;
