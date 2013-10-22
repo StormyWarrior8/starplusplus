@@ -7,4 +7,4 @@ module.exports = ($scope, github) ->
         # Get the stars
         github.getStars()
             .then (data) ->
-                console.log data
+                $scope.stars = data
