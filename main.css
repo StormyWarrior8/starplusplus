@@ -1,0 +1,50 @@
+/* Pad the top so the page is not behind the navbar */
+body {
+    padding-top: 70px;
+}
+
+/* Add a bit of margin */
+.margin-right {
+    margin-right: 10px;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+/* Center some text */
+.center-text {
+    text-align: center;
+}
+
+/* Make it red */
+.red {
+    color: red;
+}
+
+/* Form validatoin styles */
+input.ng-invalid.ng-dirty {
+    border-color: #953b39;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+    background: #f2dede;
+}
+
+input.ng-valid.ng-dirty {
+    border-color: #356635;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+    background: #dff0d8;
+}
+
+/* Restyle bootstraps alerts to make them a little smaller */
+.alert {
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.button-alert {
+    margin-top: 0px;
+    margin-left: 10px;
+}
