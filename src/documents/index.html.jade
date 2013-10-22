@@ -5,13 +5,16 @@ div.navbar.navbar-inverse.navbar-fixed-top
     div.container
         div.navbar-header
             a.navbar-brand(href="#/") Star++
-        div(ng-show="isLoggedIn()").btn-group.navbar-btn.pull-right
-            button.btn.btn-success(type="button", ng-click="logout()") Logout
-            button.btn.btn-success.dropdown-toggle(type="button", data-toggle="dropdown")
-                span.caret
-            ul.dropdown-menu(role="menu")
-                li
-                    a(ng-click="delete()") Delete Account
+        div(ng-show="user").pull-right
+            p.navbar-text {{user.name}}
+            div.btn-group.navbar-btn
+                button.btn.btn-success(type="button", ng-click="") 
+                    i.icon-cog
+                button.btn.btn-success.dropdown-toggle(type="button", data-toggle="dropdown")
+                    span.caret
+                ul.dropdown-menu(role="menu")
+                    li
+                        a(ng-click="logout()") Logout
 div.container
     div.row
         div.col-lg-8.col-lg-offset-2

@@ -1,19 +1,14 @@
-module.exports = ($http, $q, queuerequests) ->
+module.exports = ($http, $q) ->
     # The base api url
     baseHost = "https://api.github.com"
 
     # Keep track of weather we are logged in or not
     githubAccessToken = undefined
 
-    # Check wether we have an access token or not
-    if cookie.get("githubAccessToken")
-        githubAccessToken = cookie.get "githubAccessToken"
-
     return {
-        setAccessToken: (key) ->
-            githubAccessToken = key
-            cookie.set "githubAccessToken", key,
-                expires: 1
+        setAccessToken: (accessToken) ->
+            githubAccessToken = accessToken
+            
         getStars: ->
             deferred = $q.defer()
 

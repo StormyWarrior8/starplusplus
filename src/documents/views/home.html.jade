@@ -4,8 +4,6 @@ div.jumbotron
             h1 Star++
             p A better way to manage your Github stars.
 
-            a(href="#/create").btn.btn-success.margin-right Create Account 
-                i.icon-plus
-
-            a(href="#/login").btn.btn-success Login 
-                i.icon-arrow-right
+            span(ng-hide="user")
+                a(ng-click="login()").btn.btn-success.margin-right Login with Github 
+                    i.icon-plus

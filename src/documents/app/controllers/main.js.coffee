@@ -1,11 +1,12 @@
-module.exports = ($scope, $location, kinvey) ->
-    $scope.delete = ->
-        kinvey.delete()
-        $location.path "/"
+module.exports = ($scope, $location, angularFireAuth) ->
+    ref = new Firebase "https://starplusplus-dev.firebaseio.com"
+    angularFireAuth.initialize(ref, {scope: $scope, name: "user"});
+
+    $scope.login = ->
+        console.log "Logging in with github..."
+        angularFireAuth.login "github", scope: "user"
+        $location.path "/stars"
 
     $scope.logout = ->
-        kinvey.logout()
-        $location.path "/"
-
-    $scope.isLoggedIn = ->
-        return kinvey.isLoggedIn()
+        console.log "Logging out..."
+        angularFireAuth.logout()
